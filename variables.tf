@@ -69,6 +69,7 @@ variable "isolated_subnet_cidrs" {
 variable "ami_id" {
   description = "AMI ID for EC2 instances (Amazon Linux 2023)"
   type        = string
+  default     = "ami-0e581acdc7c247729"
 }
 
 variable "instance_type" {
@@ -131,6 +132,7 @@ variable "app_s3_bucket" {
 variable "acm_certificate_arn" {
   description = "ARN of the ACM certificate for HTTPS"
   type        = string
+  default     = "arn:aws:acm:ap-south-1:441160709103:certificate/675a75d4-b5d8-47b3-9ab3-7bdc22f2f2a8"
 }
 
 variable "enable_stickiness" {
@@ -171,3 +173,14 @@ variable "allowed_db_ports" {
   type        = list(number)
   default     = [5432]
 }
+
+variable "domain_name" {
+  default = "anushka-prod.com"
+}
+
+variable "app_domain" {
+  description = "Application domain name for Route53"
+  type        = string
+  default     = "app.anushka-prod.com"
+}
+

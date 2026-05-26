@@ -12,3 +12,4 @@ output "launch_template_id" {
   description = "ID of the Launch Template"
   value       = aws_launch_template.app.id
 }
+

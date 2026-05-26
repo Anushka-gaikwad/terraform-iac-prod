@@ -104,7 +104,7 @@ resource "aws_lb" "main" {
   security_groups    = [var.security_group_id]
   subnets            = var.public_subnet_ids
 
-  enable_deletion_protection = var.environment == "production" ? true : false
+  enable_deletion_protection = false
   drop_invalid_header_fields = true
 
   access_logs {

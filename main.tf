@@ -112,3 +112,15 @@ module "waf" {
   rate_limit         = var.waf_rate_limit
   enable_waf_logging = var.enable_waf_logging
 }
+
+# DNS moduke
+
+module "dns" {
+  source = "./modules/dns"
+
+  domain_name   = var.domain_name
+  app_domain    = var.app_domain
+
+  alb_dns_name = module.alb.alb_dns_name
+  alb_zone_id  = module.alb.alb_zone_id
+}
