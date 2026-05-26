@@ -51,6 +51,12 @@ variable "target_group_arn" {
   type        = string
 }
 
+variable "alb_target_group_resource_label" {
+  description = "ALB/TG resource label for ALBRequestCountPerTarget metric (format: app/alb-name/alb-id/targetgroup/tg-name/tg-id)"
+  type        = string
+  default     = ""
+}
+
 variable "kms_key_arn" {
   description = "KMS key ARN for EBS encryption"
   type        = string

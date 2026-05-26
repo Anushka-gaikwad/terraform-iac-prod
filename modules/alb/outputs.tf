@@ -22,3 +22,8 @@ output "alb_arn_suffix" {
   description = "ARN suffix of the ALB (for CloudWatch metrics)"
   value       = aws_lb.main.arn_suffix
 }
+
+output "alb_target_group_resource_label" {
+  description = "Resource label for ALBRequestCountPerTarget scaling metric"
+  value       = "${aws_lb.main.arn_suffix}/${aws_lb_target_group.app.arn_suffix}"
+}

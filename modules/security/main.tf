@@ -246,15 +246,17 @@ resource "aws_kms_alias" "main" {
 # SSM Parameters for App Config
 # -----------------------------------------------------------------------------
 resource "aws_ssm_parameter" "app_port" {
-  name  = "/${var.project}/${var.environment}/app/port"
-  type  = "String"
-  value = tostring(var.app_port)
-  tags  = var.tags
+  name      = "/${var.project}/${var.environment}/app/port"
+  type      = "String"
+  value     = tostring(var.app_port)
+  overwrite = true
+  tags      = var.tags
 }
 
 resource "aws_ssm_parameter" "node_env" {
-  name  = "/${var.project}/${var.environment}/app/node_env"
-  type  = "String"
-  value = var.environment == "production" ? "production" : "development"
-  tags  = var.tags
+  name      = "/${var.project}/${var.environment}/app/node_env"
+  type      = "String"
+  value     = var.environment == "production" ? "production" : "development"
+  overwrite = true
+  tags      = var.tags
 }

@@ -4,8 +4,9 @@ data "aws_region" "current" {}
 # CloudWatch Agent Configuration in SSM
 # -----------------------------------------------------------------------------
 resource "aws_ssm_parameter" "cw_agent_config" {
-  name = "/${var.project}/${var.environment}/cloudwatch-agent/config"
-  type = "String"
+  name      = "/${var.project}/${var.environment}/cloudwatch-agent/config"
+  type      = "String"
+  overwrite = true
 
   value = jsonencode({
     agent = {
@@ -210,7 +211,7 @@ resource "aws_autoscaling_policy" "request_count_tracking" {
   target_tracking_configuration {
     predefined_metric_specification {
       predefined_metric_type = "ALBRequestCountPerTarget"
-      resource_label         = var.target_group_arn
+      resource_label         = var.alb_target_group_resource_label
     }
     target_value = 1000
   }

@@ -22,7 +22,7 @@ max_size                 = 6
 cpu_target               = 60
 enable_scheduled_scaling = true
 key_name                 = ""
-app_s3_bucket            = "nodejs-app-production-app-artifacts"
+app_s3_bucket            = ""
 
 # Load Balancer
 acm_certificate_arn = "arn:aws:acm:ap-south-1:441160709103:certificate/675a75d4-b5d8-47b3-9ab3-7bdc22f2f2a8" 

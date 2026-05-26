@@ -88,8 +88,9 @@ module "compute" {
   iam_instance_profile_name = module.security.iam_instance_profile_name
   security_group_id         = module.security.ec2_sg_id
   private_subnet_ids        = module.vpc.private_subnet_ids
-  target_group_arn          = module.alb.target_group_arn
-  kms_key_arn               = module.security.kms_key_arn
+  target_group_arn                = module.alb.target_group_arn
+  alb_target_group_resource_label = module.alb.alb_target_group_resource_label
+  kms_key_arn                     = module.security.kms_key_arn
   min_size                  = var.min_size
   desired_capacity          = var.desired_capacity
   max_size                  = var.max_size
